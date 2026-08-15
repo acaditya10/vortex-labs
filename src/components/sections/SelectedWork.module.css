@@ -1,0 +1,171 @@
+.section {
+  border-top: 1px solid var(--line);
+  padding: clamp(80px, 9vw, 124px) 0 clamp(72px, 8vw, 104px);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin: -8px 0 clamp(36px, 4vw, 56px);
+}
+
+.support {
+  max-width: 52ch;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.65;
+  color: var(--fg-2);
+}
+
+.allLink {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.allLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 3.4vw, 52px);
+}
+
+.project {
+  position: relative;
+}
+
+.projectLink {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0c0c0c;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.projectLink:hover {
+  border-color: rgba(255, 106, 61, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  transform: translateY(-6px);
+}
+
+.meta {
+  padding: clamp(20px, 2vw, 28px) 0 0;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.name {
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1.9vw, 1.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin: 14px 0 12px;
+  transition: color 0.3s ease;
+}
+
+.project:hover .name {
+  color: var(--accent);
+}
+
+.desc {
+  font-size: clamp(14px, 1.3vw, 15px);
+  line-height: 1.6;
+  color: var(--fg-2);
+  margin: 0;
+  max-width: 34ch;
+}
+
+.metaFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 18px 0 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.tags {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg);
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.link:hover {
+  color: var(--accent);
+  gap: 11px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(24px, 4vw, 40px);
+  }
+
+  .name {
+    font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}

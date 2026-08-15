@@ -1,0 +1,218 @@
+.section {
+  border-top: 1px solid var(--line);
+  padding: clamp(80px, 9vw, 124px) 0 clamp(80px, 9vw, 124px);
+}
+
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: clamp(40px, 5vw, 72px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+.heading {
+  margin: 0;
+  max-width: 16ch;
+  font-weight: 500;
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--fg);
+}
+
+.support {
+  max-width: 38ch;
+  font-size: clamp(14px, 1.4vw, 16px);
+  line-height: 1.6;
+  color: var(--fg-2);
+  padding-bottom: 6px;
+}
+
+.trackWrap {
+  position: relative;
+}
+
+.track {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(12px, 2vw, 32px);
+  counter-reset: stage;
+}
+
+.trackLine {
+  position: absolute;
+  top: 21px;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  background: var(--line);
+  pointer-events: none;
+}
+
+.trackFill {
+  position: absolute;
+  top: 21px;
+  left: 16px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  box-shadow: 0 0 10px rgba(255, 106, 61, 0.4);
+}
+
+.stage {
+  position: relative;
+  padding: 0 4px;
+  text-align: center;
+  cursor: default;
+}
+
+.stageNum {
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 1.4vw, 16px);
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  counter-increment: stage;
+  margin-bottom: 20px;
+}
+
+.stageName {
+  font-weight: 500;
+  font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--fg);
+  margin: 6px 0 0;
+}
+
+.stageDesc {
+  font-size: clamp(13px, 1.3vw, 14px);
+  line-height: 1.55;
+  color: var(--fg-2);
+  margin: 10px 0 0;
+}
+
+.dot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  margin: 0 auto 18px;
+}
+
+.dotActive {
+  background: rgba(255, 106, 61, 0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 14px rgba(255, 106, 61, 0.5);
+}
+
+.stageIcon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-2);
+  transition: color 0.3s ease;
+}
+
+.dotActive .stageIcon {
+  color: var(--accent);
+}
+
+@media (max-width: 899px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .track {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 16px;
+  }
+
+  .trackLine {
+    top: 21px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .trackFill {
+    left: 8px;
+  }
+}
+
+@media (max-width: 599px) {
+  .track {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .trackWrap {
+    border-top: 1px solid var(--line);
+  }
+
+  .trackLine {
+    top: 0;
+    bottom: 0;
+    left: 8px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .trackFill {
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+  }
+
+  .stage {
+    padding: 28px 0;
+    text-align: left;
+  }
+
+  .stageNum {
+    margin-bottom: 12px;
+  }
+
+  .dot {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    margin: 0;
+  }
+}
