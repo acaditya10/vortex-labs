@@ -687,7 +687,7 @@
 
   .content {
     display: block;
-    padding: clamp(36px, 7vh, 56px) 22px 154px;
+    padding: clamp(36px, 7vh, 56px) 22px clamp(60px, 10vh, 100px);
   }
 
   .canvas {
@@ -720,7 +720,7 @@
   }
 
   .headline {
-    font-size: clamp(2.75rem, 12.8vw, 4.25rem);
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
     line-height: 1.06;
     letter-spacing: -0.03em;
   }

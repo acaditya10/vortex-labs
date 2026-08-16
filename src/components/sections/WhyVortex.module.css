@@ -280,4 +280,14 @@
   .heading {
     font-size: clamp(1.8rem, 8vw, 2.6rem);
   }
+
+  .founderRole {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .founderLoc {
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+  }
 }

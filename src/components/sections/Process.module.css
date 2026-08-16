@@ -212,7 +212,7 @@
   .dot {
     position: absolute;
     top: 42px;
-    left: 0;
+    left: 8px;
     margin: 0;
   }
 }

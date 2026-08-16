@@ -137,7 +137,11 @@
 @media (max-width: 599px) {
   .panel {
     min-height: 0;
-    padding: 56px 26px;
+    padding: 48px 20px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
   }
 
   .vortex {

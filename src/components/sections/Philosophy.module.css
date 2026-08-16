@@ -137,7 +137,8 @@
   }
 
   .statement {
-    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    max-width: 28ch;
   }
 
   :global(.orbitLeft),
