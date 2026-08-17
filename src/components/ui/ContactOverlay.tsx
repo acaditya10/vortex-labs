@@ -93,7 +93,7 @@ export function ContactOverlay() {
             </p>
           </div>
         ) : (
-          <div className={styles.grid}>
+          <div className={`${styles.grid} ${calView ? styles.gridCal : ""}`}>
             {/* Left — Cal.com */}
             <div className={`${styles.left} ${calView ? styles.leftCal : ""}`}>
               {!calView ? (
@@ -122,7 +122,7 @@ export function ContactOverlay() {
             </div>
 
             {/* Right — Form */}
-            <div className={styles.right}>
+            <div className={`${styles.right} ${calView ? styles.rightHidden : ""}`}>
               <div className={styles.rightInner}>
                 <p className={styles.panelLabel}>SEND A MESSAGE</p>
                 <p className={styles.panelDesc}>
