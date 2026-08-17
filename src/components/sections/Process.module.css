@@ -154,6 +154,11 @@
 }
 
 @media (max-width: 599px) {
+  .trackLine,
+  .trackFill {
+    display: none;
+  }
+
   .track {
     grid-template-columns: 1fr;
   }
