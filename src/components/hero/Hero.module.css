@@ -672,9 +672,7 @@
   }
 
   .canvas::after {
-    background:
-      linear-gradient(90deg, rgba(4, 4, 4, 0.2) 0%, rgba(4, 4, 4, 0.06) 50%, transparent 100%),
-      radial-gradient(ellipse 80% 60% at 50% 50%, transparent 50%, rgba(4, 4, 4, 0.04) 100%);
+    background: none;
   }
 
   .statusBadge {
@@ -704,10 +702,6 @@
 
 @media (max-width: 767px) {
   .hero::after {
-    background: radial-gradient(
-      140% 80% at 50% 35%,
-      transparent 50%,
-      rgba(4, 4, 4, 0.5) 100%
-    );
+    background: none;
   }
 }
