@@ -1,3 +1,6 @@
+import { ContactProvider } from "@/components/ui/ContactContext";
+import { ContactOverlay } from "@/components/ui/ContactOverlay";
+import { Navbar } from "@/components/ui/Navbar";
 import { Hero } from "@/components/hero/Hero";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { Capabilities } from "@/components/sections/Capabilities";
@@ -10,16 +13,20 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <SelectedWork />
-      <Capabilities />
-      <Philosophy />
-      <Process />
-      <WhyVortex />
-      <Trust />
-      <FinalCta />
-      <Footer />
-    </main>
+    <ContactProvider>
+      <Navbar />
+      <ContactOverlay />
+      <main>
+        <Hero />
+        <SelectedWork />
+        <Capabilities />
+        <Philosophy />
+        <Process />
+        <WhyVortex />
+        <Trust />
+        <FinalCta />
+        <Footer />
+      </main>
+    </ContactProvider>
   );
 }

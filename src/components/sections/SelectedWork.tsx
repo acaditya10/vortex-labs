@@ -1,3 +1,6 @@
+"use client";
+
+import { useContact } from "@/components/ui/ContactContext";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WorkPreview } from "./WorkPreview";
@@ -31,6 +34,8 @@ const PROJECTS = [
 ];
 
 export function SelectedWork() {
+  const { show } = useContact();
+
   return (
     <section id="work" className={styles.section}>
       <div className="shell">
@@ -45,12 +50,13 @@ export function SelectedWork() {
               A selection of digital experiences we&apos;ve designed and built for ambitious
               businesses — from positioning and brand to the final shipped product.
             </p>
-            <a
+            <button
               className={styles.allLink}
-              href="#contact"
+              onClick={show}
+              type="button"
             >
               View All Projects <span aria-hidden="true">↗</span>
-            </a>
+            </button>
           </div>
         </Reveal>
 

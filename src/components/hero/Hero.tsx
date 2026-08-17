@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { VortexMark } from "./VortexMark";
+import { useContact } from "@/components/ui/ContactContext";
 import styles from "./Hero.module.css";
 
 const VortexCanvas = dynamic(
@@ -10,12 +10,11 @@ const VortexCanvas = dynamic(
   { ssr: false }
 );
 
-const NAV_LINKS = ["Work", "Services", "Process", "About", "Contact"] as const;
-
 export function Hero() {
   const [ready, setReady] = useState(false);
   const [hover, setHover] = useState(false);
   const rootRef = useRef<HTMLElement>(null);
+  const { show } = useContact();
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setReady(true));
@@ -28,41 +27,6 @@ export function Hero() {
       id="top"
       className={`${styles.hero} ${ready ? styles.ready : ""}`}
     >
-      {/* Top Navigation */}
-      <header className={`${styles.nav} ${styles.reveal} ${styles.revealNav}`}>
-        <div className={styles.navInner}>
-          <a className={styles.brand} href="#top" aria-label="VORTEX — home">
-            <VortexMark size={22} />
-            <span className={styles.brandWord}>VORTEX</span>
-          </a>
-
-          <nav className={styles.links} aria-label="Primary">
-            <ul>
-              {NAV_LINKS.map((label) => (
-                <li key={label}>
-                  <a
-                    className={styles.link}
-                    href={`#${label.toLowerCase()}`}
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <a
-            className={styles.navCta}
-            href="#contact"
-          >
-            Start a Project
-            <span className={styles.arrow} aria-hidden="true">
-              ↗
-            </span>
-          </a>
-        </div>
-      </header>
-
       {/* 3D WebGL Canvas */}
       <div
         className={`${styles.canvas} ${styles.reveal} ${styles.revealFade} ${styles.revealCanvas}`}
@@ -110,9 +74,10 @@ export function Hero() {
           </p>
 
           <div className={`${styles.actions} ${styles.reveal} ${styles.revealActions}`}>
-            <a
+            <button
               className={`${styles.primary} ${hover ? styles.hover : ""}`}
-              href="#contact"
+              type="button"
+              onClick={show}
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
@@ -121,7 +86,7 @@ export function Hero() {
               <span className={styles.primaryIcon} aria-hidden="true">
                 ↗
               </span>
-            </a>
+            </button>
 
             <a
               className={styles.secondary}
