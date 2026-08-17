@@ -21,9 +21,10 @@
   justify-content: center;
   min-height: clamp(360px, 48vh, 460px);
   padding: clamp(56px, 7vw, 96px) clamp(28px, 6vw, 96px);
-  margin: 0 clamp(16px, 4vw, 48px);
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  margin: 0;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
   background:
     radial-gradient(
       90% 130% at 100% 50%,
@@ -145,8 +146,8 @@
   .panel {
     min-height: 0;
     padding: 48px 20px;
-    margin: 0 12px;
-    border-radius: 8px;
+    margin: 0;
+    border-radius: 0;
   }
 
   .title {
