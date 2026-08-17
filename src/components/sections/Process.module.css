@@ -8,7 +8,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 40px;
-  padding-bottom: clamp(40px, 5vw, 72px);
+  padding-bottom: clamp(48px, 6vw, 80px);
 }
 
 .eyebrow {
@@ -50,23 +50,19 @@
   padding-bottom: 6px;
 }
 
+/* ------------------------------------------------------------------ */
+/* Track — horizontal progress line                                     */
+/* ------------------------------------------------------------------ */
+
 .trackWrap {
   position: relative;
 }
 
-.track {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(12px, 2vw, 32px);
-  counter-reset: stage;
-}
-
 .trackLine {
   position: absolute;
-  top: 21px;
-  left: 16px;
-  right: 16px;
+  top: 19px;
+  left: 0;
+  right: 0;
   height: 1px;
   background: var(--line);
   pointer-events: none;
@@ -74,145 +70,107 @@
 
 .trackFill {
   position: absolute;
-  top: 21px;
-  left: 16px;
+  top: 19px;
+  left: 0;
   height: 1px;
   background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  box-shadow: 0 0 10px rgba(255, 106, 61, 0.4);
+  width: calc(var(--p, 0) * 100%);
+  transition: width 0.15s ease-out;
+  box-shadow: 0 0 10px rgba(255, 106, 61, 0.35);
+}
+
+/* ------------------------------------------------------------------ */
+/* Stages — 3-column grid, clean numbered cards                        */
+/* ------------------------------------------------------------------ */
+
+.track {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  counter-reset: stage;
 }
 
 .stage {
   position: relative;
-  padding: 0 4px;
-  text-align: center;
+  padding: clamp(28px, 3vw, 44px) clamp(20px, 2.5vw, 36px);
+  text-align: left;
   cursor: default;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.stage:hover {
+  border-color: rgba(255, 106, 61, 0.25);
+  background: rgba(255, 106, 61, 0.02);
+}
+
+.stageActive {
+  border-color: rgba(255, 106, 61, 0.35);
 }
 
 .stageNum {
+  display: block;
   font-family: var(--font-mono);
-  font-size: clamp(13px, 1.4vw, 16px);
-  letter-spacing: 0.12em;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
   color: var(--accent);
-  counter-increment: stage;
-  margin-bottom: 20px;
+  opacity: 0.25;
+  line-height: 1;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  transition: opacity 0.3s ease;
+}
+
+.stageActive .stageNum {
+  opacity: 0.6;
 }
 
 .stageName {
   font-weight: 500;
-  font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--fg);
-  margin: 6px 0 0;
+  margin: 0;
 }
 
 .stageDesc {
-  font-size: clamp(13px, 1.3vw, 14px);
-  line-height: 1.55;
+  font-size: clamp(13px, 1.3vw, 14.5px);
+  line-height: 1.6;
   color: var(--fg-2);
-  margin: 10px 0 0;
+  margin: clamp(8px, 1vw, 12px) 0 0;
 }
 
-.dot {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--bg);
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  margin: 0 auto 18px;
-}
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
 
-.dotActive {
-  background: rgba(255, 106, 61, 0.08);
-  border-color: var(--accent);
-  box-shadow: 0 0 14px rgba(255, 106, 61, 0.5);
-}
-
-.stageIcon {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--fg-2);
-  transition: color 0.3s ease;
-}
-
-.dotActive .stageIcon {
-  color: var(--accent);
-}
-
-@media (max-width: 899px) {
+@media (max-width: 1024px) {
   .head {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .track {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px 16px;
-  }
-
-  .trackLine {
-    top: 21px;
-    left: 8px;
-    right: 8px;
-  }
-
-  .trackFill {
-    left: 8px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 599px) {
   .track {
     grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .trackWrap {
-    border-top: 1px solid var(--line);
-  }
-
-  .trackLine {
-    top: 0;
-    bottom: 0;
-    left: 8px;
-    right: auto;
-    width: 1px;
-    height: auto;
-  }
-
-  .trackFill {
-    width: 100%;
-    height: 100%;
-    transform: scaleY(0);
-    transform-origin: 50% 0;
   }
 
   .stage {
-    padding: 28px 0;
-    text-align: left;
+    padding: clamp(24px, 5vw, 32px) clamp(16px, 4vw, 24px);
   }
 
   .stageNum {
-    margin-bottom: 12px;
-  }
-
-  .dot {
-    position: absolute;
-    top: 42px;
-    left: 8px;
-    margin: 0;
+    font-size: clamp(24px, 8vw, 36px);
+    margin-bottom: clamp(12px, 3vw, 18px);
   }
 }
