@@ -259,7 +259,7 @@
   line-height: 1.04;
   letter-spacing: -0.035em;
   color: var(--fg);
-  max-width: 12ch;
+  width: fit-content;
 }
 
 .line {
