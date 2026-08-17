@@ -171,16 +171,6 @@ export function Hero() {
         </aside>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        className={`${styles.scroll} ${styles.reveal} ${styles.revealFade} ${styles.revealScroll}`}
-      >
-        <span>SCROLL TO EXPLORE</span>
-        <span className={styles.scrollArrow} aria-hidden="true">
-          ↓
-        </span>
-      </div>
-
       <div className="grain" aria-hidden="true" />
     </section>
   );

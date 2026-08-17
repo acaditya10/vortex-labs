@@ -510,43 +510,6 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Scroll indicator                                                    */
-/* ------------------------------------------------------------------ */
-
-.scroll {
-  position: absolute;
-  left: 50%;
-  bottom: 24px;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.26em;
-  color: var(--fg-2);
-  white-space: nowrap;
-}
-
-.scrollArrow {
-  display: inline-block;
-  animation: scrollNudge 2.4s ease-in-out infinite;
-}
-
-@keyframes scrollNudge {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.75;
-  }
-  50% {
-    transform: translateY(4px);
-    opacity: 1;
-  }
-}
-
-/* ------------------------------------------------------------------ */
 /* Reveal sequence (CSS-driven, safe without JS)                       */
 /* ------------------------------------------------------------------ */
 
@@ -610,10 +573,6 @@
 
 .hero.ready .revealHud {
   animation-delay: 0.88s;
-}
-
-.hero.ready .revealScroll {
-  animation-delay: 1.35s;
 }
 
 @keyframes fadeUp {
@@ -737,10 +696,6 @@
 
   .primary {
     padding: 16px 28px;
-  }
-
-  .scroll {
-    bottom: 18px;
   }
 }
 
