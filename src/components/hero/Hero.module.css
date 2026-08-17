@@ -691,27 +691,27 @@
   }
 
   .canvas {
-    opacity: 0.98;
+    opacity: 1;
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent 0,
       transparent calc(var(--nav-h) - 8px),
-      black calc(var(--nav-h) + 28px),
+      black calc(var(--nav-h) + 16px),
       black 100%
     );
     mask-image: linear-gradient(
       to bottom,
       transparent 0,
       transparent calc(var(--nav-h) - 8px),
-      black calc(var(--nav-h) + 28px),
+      black calc(var(--nav-h) + 16px),
       black 100%
     );
   }
 
   .canvas::after {
     background:
-      linear-gradient(90deg, rgba(4, 4, 4, 0.36) 0%, rgba(4, 4, 4, 0.18) 42%, rgba(4, 4, 4, 0.03) 74%, transparent 100%),
-      radial-gradient(ellipse 94% 72% at 50% 50%, transparent 42%, rgba(4, 4, 4, 0.08) 100%);
+      linear-gradient(90deg, rgba(4, 4, 4, 0.2) 0%, rgba(4, 4, 4, 0.06) 50%, transparent 100%),
+      radial-gradient(ellipse 80% 60% at 50% 50%, transparent 50%, rgba(4, 4, 4, 0.04) 100%);
   }
 
   .statusBadge {
@@ -740,5 +740,15 @@
 
   .scroll {
     bottom: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero::after {
+    background: radial-gradient(
+      140% 80% at 50% 35%,
+      transparent 50%,
+      rgba(4, 4, 4, 0.5) 100%
+    );
   }
 }
