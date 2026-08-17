@@ -62,9 +62,9 @@ export function Footer() {
               <li>
                 <a
                   className={styles.link}
-                  href="mailto:hello@vortex.acaditya10.tech"
+                  href="mailto:hi@acaditya10.tech"
                 >
-                  hello@vortex.acaditya10.tech
+                  hi@acaditya10.tech
                 </a>
               </li>
               <li>

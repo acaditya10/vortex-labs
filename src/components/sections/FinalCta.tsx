@@ -40,9 +40,9 @@ export function FinalCta() {
               </button>
               <a
                 className={styles.secondary}
-                href="mailto:hello@vortex.acaditya10.tech"
+                href="mailto:hi@acaditya10.tech"
               >
-                hello@vortex.acaditya10.tech
+                hi@acaditya10.tech
               </a>
             </div>
           </Reveal>
