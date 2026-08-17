@@ -648,6 +648,7 @@
   .content {
     display: block;
     padding: clamp(80px, 18vh, 140px) 22px clamp(60px, 10vh, 100px);
+    align-items: end;
   }
 
   .canvas {
