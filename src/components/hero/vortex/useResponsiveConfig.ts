@@ -90,7 +90,7 @@ const CONFIGS: Record<Breakpoint, Omit<VortexConfig, "breakpoint" | "reducedMoti
     dotCount: 80,
     starCount: 35,
     lineWidthPx: 2.0,
-    focus: { x: 0.55, y: 0.42 },
+    focus: { x: 0.55, y: 0.3 },
     rotation: [0.9, 0.12, -0.08],
     dpr: [1, 1.4],
   },
