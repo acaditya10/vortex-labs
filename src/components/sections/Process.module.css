@@ -96,20 +96,13 @@
   padding: clamp(28px, 3vw, 44px) clamp(20px, 2.5vw, 36px);
   text-align: left;
   cursor: default;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   background: var(--bg);
-  transition:
-    border-color 0.3s ease,
-    background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .stage:hover {
-  border-color: rgba(255, 106, 61, 0.25);
-  background: rgba(255, 106, 61, 0.02);
-}
-
-.stageActive {
-  border-color: rgba(255, 106, 61, 0.35);
+  background: rgba(255, 106, 61, 0.03);
 }
 
 .stageNum {
