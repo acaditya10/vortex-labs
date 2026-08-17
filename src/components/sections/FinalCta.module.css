@@ -1,6 +1,5 @@
 .section {
   border-top: 1px solid var(--line);
-  padding: clamp(80px, 9vw, 132px) 0 clamp(80px, 9vw, 132px);
 }
 
 .label {
@@ -20,7 +19,7 @@
   align-items: center;
   justify-content: center;
   min-height: clamp(360px, 48vh, 460px);
-  padding: clamp(56px, 7vw, 96px) clamp(28px, 6vw, 96px);
+  padding: clamp(80px, 9vw, 132px) clamp(28px, 6vw, 96px);
   margin: 0;
   border-left: none;
   border-right: none;
