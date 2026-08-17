@@ -646,9 +646,11 @@
   }
 
   .content {
-    display: block;
-    padding: clamp(80px, 18vh, 140px) 22px clamp(60px, 10vh, 100px);
-    align-items: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: calc(100svh - var(--nav-h));
+    padding: 0 22px clamp(60px, 10vh, 100px);
   }
 
   .canvas {
