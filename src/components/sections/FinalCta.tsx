@@ -75,7 +75,7 @@ export function FinalCta() {
                 </p>
                 <div className={styles.calWrap}>
                   <iframe
-                    src="https://cal.com/acaditya10?embed=true&layout=month_view&theme=dark"
+                    src="https://cal.com/acaditya10/discovery?embed=true&layout=month_view&theme=dark"
                     width="100%"
                     height="500"
                     frameBorder="0"
