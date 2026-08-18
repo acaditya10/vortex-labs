@@ -9,11 +9,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   animation: backdropIn 0.25s ease;
-  padding: 24px;
 }
 
 @keyframes backdropIn {
@@ -24,11 +23,12 @@
 .modal {
   position: relative;
   width: 100%;
-  max-width: 780px;
-  height: 520px;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   background: #111110;
-  border: 1px solid var(--line);
-  border-radius: 10px;
+  border: none;
+  border-radius: 0;
   overflow: hidden;
   animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: center;
   border-right: 1px solid var(--line);
-  padding: 40px 32px;
+  padding: 60px 48px;
   height: 100%;
   transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -107,14 +107,12 @@
   width: 100%;
   height: 100%;
   position: relative;
-  overflow: auto;
 }
 
 .calIframe {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 520px;
   border: none;
 }
 
@@ -170,8 +168,9 @@
 }
 
 .rightInner {
-  padding: 40px 32px;
+  padding: 60px 48px;
   width: 100%;
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -304,7 +303,7 @@ textarea.input {
   justify-content: center;
   text-align: center;
   padding: 60px 40px;
-  min-height: 360px;
+  height: 100%;
   gap: 12px;
 }
 
@@ -342,11 +341,6 @@ textarea.input {
 /* ------------------------------------------------------------------ */
 
 @media (max-width: 740px) {
-  .modal {
-    height: auto;
-    max-height: 90vh;
-  }
-
   .grid {
     grid-template-columns: 1fr;
     height: auto;
@@ -355,28 +349,27 @@ textarea.input {
   .left {
     border-right: none;
     border-bottom: 1px solid var(--line);
-    padding: 28px 24px;
+    padding: 40px 24px;
     height: auto;
+    min-height: 50vh;
   }
 
   .leftCal {
     padding: 0;
+    min-height: 60vh;
   }
 
   .calWrap {
-    min-height: 400px;
-  }
-
-  .calIframe {
-    min-height: 400px;
+    min-height: 60vh;
   }
 
   .right {
     height: auto;
+    flex: 1;
   }
 
   .rightInner {
-    padding: 24px;
+    padding: 40px 24px;
   }
 
   .fieldRow {
@@ -385,29 +378,19 @@ textarea.input {
 }
 
 @media (max-width: 480px) {
-  .backdrop {
-    padding: 12px;
-    align-items: flex-end;
-  }
-
-  .modal {
-    border-radius: 10px 10px 0 0;
-    max-height: 92vh;
-  }
-
   .left {
-    padding: 20px 16px;
+    padding: 24px 16px;
+  }
+
+  .leftCal {
+    min-height: 50vh;
   }
 
   .calWrap {
-    min-height: 340px;
-  }
-
-  .calIframe {
-    min-height: 340px;
+    min-height: 50vh;
   }
 
   .rightInner {
-    padding: 20px 16px;
+    padding: 24px 16px;
   }
 }

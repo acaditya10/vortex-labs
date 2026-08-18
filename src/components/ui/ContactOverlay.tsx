@@ -109,7 +109,7 @@ export function ContactOverlay() {
               ) : (
                 <div className={styles.calWrap}>
                   <iframe
-                    src="https://cal.com/acaditya10/discovery?embed=true&layout=month_view&theme=dark"
+                    src="https://cal.com/acaditya10/discovery?layout=month_view&theme=dark"
                     width="100%"
                     height="100%"
                     frameBorder="0"
