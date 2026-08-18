@@ -113,9 +113,11 @@ export function ContactOverlay() {
                     width="100%"
                     height="100%"
                     frameBorder="0"
-                    scrolling="no"
+                    scrolling="yes"
+                    loading="lazy"
                     className={styles.calIframe}
                     title="Schedule a discovery call on Cal.com"
+                    allow="payment"
                   />
                 </div>
               )}
