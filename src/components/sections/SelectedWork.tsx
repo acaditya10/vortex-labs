@@ -1,8 +1,6 @@
 "use client";
 
-import { useContact } from "@/components/ui/ContactContext";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WorkPreview } from "./WorkPreview";
 import styles from "./SelectedWork.module.css";
 
@@ -34,31 +32,29 @@ const PROJECTS = [
 ];
 
 export function SelectedWork() {
-  const { show } = useContact();
-
   return (
     <section id="work" className={styles.section}>
       <div className="shell">
-        <SectionHeader
-          eyebrow="SELECTED WORK"
-          title="Digital experiences that deliver results."
-        />
-
-        <Reveal variant="fade">
-          <div className={styles.head}>
-            <p className={styles.support}>
-              A selection of digital experiences we&apos;ve designed and built for ambitious
-              businesses — from positioning and brand to the final shipped product.
-            </p>
-            <button
-              className={styles.allLink}
-              onClick={show}
-              type="button"
-            >
-              View All Projects <span aria-hidden="true">↗</span>
-            </button>
+        <div className={styles.header}>
+          <div className={styles.headerLeft}>
+            <Reveal variant="fade">
+              <p className={styles.eyebrow}>SELECTED WORK</p>
+            </Reveal>
+            <Reveal variant="up">
+              <h2 className={styles.title}>
+                Digital experiences<br />that deliver results.
+              </h2>
+            </Reveal>
           </div>
-        </Reveal>
+          <div className={styles.headerRight}>
+            <Reveal variant="fade" delay={100}>
+              <p className={styles.support}>
+                A selection of digital experiences we&apos;ve designed and built for ambitious
+                businesses — from positioning and brand to the final shipped product.
+              </p>
+            </Reveal>
+          </div>
+        </div>
 
         <div className={styles.grid}>
           {PROJECTS.map((project, i) => (
