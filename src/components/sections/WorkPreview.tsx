@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./WorkPreview.module.css";
 
 type WorkPreviewProps = {
@@ -42,17 +42,18 @@ const CYCLE_MS = 5000;
 
 export function WorkPreview({ variant, url }: WorkPreviewProps) {
   const site = MEDIA[variant];
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<ReturnType<typeof setInterval>>(null);
+  const [idx, setIdx] = useState(0);
+  const len = site.files.length;
+
+  const advance = useCallback(() => {
+    setIdx((prev) => (prev + 1) % len);
+  }, [len]);
 
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % site.files.length);
-    }, CYCLE_MS);
-    return () => clearInterval(timerRef.current!);
-  }, [site.files.length]);
-
-  const item = site.files[current];
+    if (len <= 1) return;
+    const id = setInterval(advance, CYCLE_MS);
+    return () => clearInterval(id);
+  }, [advance, len]);
 
   return (
     <div className={styles.frame} role="img" aria-label={site.label}>
@@ -67,33 +68,35 @@ export function WorkPreview({ variant, url }: WorkPreviewProps) {
       </div>
 
       <div className={styles.mediaWrap}>
-        {site.files.map((file, i) => (
-          <div
-            key={file.src}
-            className={`${styles.mediaItem} ${i === current ? styles.mediaActive : ""}`}
-          >
-            {file.type === "image" ? (
-              <img
-                src={file.src}
-                alt={site.label}
-                loading={i === 0 ? "eager" : "lazy"}
-                className={styles.media}
-                draggable={false}
-              />
-            ) : (
-              <video
-                src={file.src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload={i === 0 ? "auto" : "none"}
-                className={styles.media}
-                aria-label={site.label}
-              />
-            )}
-          </div>
-        ))}
+        {site.files.map((file, i) => {
+          const active = i === idx;
+          return (
+            <div
+              key={file.src}
+              className={styles.mediaItem}
+              style={{ opacity: active ? 1 : 0, zIndex: active ? 1 : 0 }}
+            >
+              {file.type === "image" ? (
+                <img
+                  src={file.src}
+                  alt=""
+                  className={styles.media}
+                  draggable={false}
+                />
+              ) : (
+                <video
+                  src={file.src}
+                  autoPlay={active}
+                  muted
+                  loop
+                  playsInline
+                  preload={active ? "auto" : "none"}
+                  className={styles.media}
+                />
+              )}
+            </div>
+          );
+        })}
 
         <div className={styles.overlay} aria-hidden="true">
           <span className={styles.overlayTag}>{site.tag}</span>
