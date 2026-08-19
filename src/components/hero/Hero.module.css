@@ -33,17 +33,13 @@
   pointer-events: none;
   -webkit-mask-image: linear-gradient(
     to bottom,
-    transparent 0,
-    transparent calc(var(--nav-h) - 6px),
-    black calc(var(--nav-h) + 64px),
+    black 0,
     black calc(100% - 64px),
     transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
-    transparent 0,
-    transparent calc(var(--nav-h) - 6px),
-    black calc(var(--nav-h) + 64px),
+    black 0,
     black calc(100% - 64px),
     transparent 100%
   );
@@ -533,20 +529,8 @@
 
   .canvas {
     opacity: 1;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent calc(var(--nav-h) - 8px),
-      black calc(var(--nav-h) + 16px),
-      black 100%
-    );
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent calc(var(--nav-h) - 8px),
-      black calc(var(--nav-h) + 16px),
-      black 100%
-    );
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .canvas::after {
